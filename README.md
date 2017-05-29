@@ -18,6 +18,11 @@ simple chat application using socket.io, webpack2, backbone and express
 
 ## Setup and configuration
 
+First you have to install nodemon module.
+<code>npm install -g nodemon </code>
+
+if you do not want to install nodemon just update package.json to run <code>node server.js</code>
+
 ### Server start
 To install <code>npm install && npm run start </code> to start the server
 
