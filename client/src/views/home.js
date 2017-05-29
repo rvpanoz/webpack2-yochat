@@ -32,6 +32,7 @@ var HomeView = Backbone.View.extend({
       return false;
     }
 
+		//show the message
     this.sendMessage(msg);
     return false;
   },
@@ -44,13 +45,18 @@ var HomeView = Backbone.View.extend({
 	initialize(params) {
 
     //register socket.io events
-    socket.on('join', _.bind(function (data) {
+    socket.emit('joinserver', _.bind(function (data) {
     	 this.showMessage(data.msg);
+			 this.addUser();
     }, this));
 
-    socket.on('show:message', _.bind(function (data) {
-    	 this.showMessage(data.msg);
-    }, this));
+		socket.on('join', _.bind(function() {
+			this.showMessage('A new user has joined.');
+		}, this));
+
+		socket.on('show:message', _.bind(function(data) {
+			this.showMessage(data.msg);
+		}, this));
 
     //render the view
 		this.render();
@@ -78,16 +84,35 @@ var HomeView = Backbone.View.extend({
 	 * @param {[type]} msg [description]
 	 * @return
 	 */
-  sendMessage(msg) {
+  sendMessage(message) {
+
 		//emit send event
-		socket.emit('send', {
-      msg: msg
+		socket.emit('send:all', {
+      msg: message
     });
 
 		//clear value
     $.trim(this.$('input').val(''));
     return false;
-  }
+  },
+
+	addUser() {
+		var userName = "user " + _.uniqueId();
+
+		socket.emit('add:user', {
+			username: userName
+		});
+
+		this.$('ul.users').append('<li>' + userName + '</li>');
+	},
+
+	onDisconnect(e) {
+		e.preventDefault();
+
+		socket.emit('disconnect', {
+			user: userName
+		});
+	}
 });
 
 module.exports = HomeView;
