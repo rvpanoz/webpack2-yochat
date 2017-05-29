@@ -5,6 +5,12 @@ import _ from 'lodash';
 import Backbone from 'backbone';
 import template from '../templates/home.html';
 
+//import socket.io
+import io from 'socket.io-client';
+
+//connect to server
+var socket = io(config.baseUrl);
+
 var HomeView = Backbone.View.extend({
 	template: template,
 

@@ -2,5 +2,5 @@
 const path = require('path');
 
 module.exports = {
-  baseUrl: path.join(__dirname, 'src/server/api')
+  baseUrl: 'http://localhost:3033'
 }
