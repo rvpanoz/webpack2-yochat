@@ -1,22 +1,39 @@
-'use strict';
-
 //imports
 import config from './config';
 import $ from 'jquery';
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Router from './router';
-import Bootstrap from 'bootstrap/dist/js/bootstrap.min';
 
-//third-party libs
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'animate.css/animate.min.css';
+//header module
+import HeaderView from './views/common/header';
 
-//app.scss
-import './assets/sass/app.scss';
+var App = Backbone.View.extend({
 
+  start() {
 
-// Instatiate Backbone router
-var AppRouter = new Router();
+    this.AppRouter = new Router();
+    var headerView = new HeaderView();
 
-Backbone.history.start();
+    //attach header view
+    $('nav').html(headerView.$el);
+
+    //start backbone history
+    Backbone.history.start();
+  },
+
+  navigate(cls, params) {
+   var url = {};
+   _.extend(url, {
+     cls: cls,
+     params: params
+   });
+   this.router.navigate(JSON.stringify(url), {
+     trigger: true
+   });
+
+   return false;
+ }
+});
+
+module.exports = App;
