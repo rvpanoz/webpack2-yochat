@@ -19,7 +19,7 @@ simple chat application using socket.io, webpack2, backbone and express
 ## Setup and configuration
 
 ### Server start
-To install <code>npm install && npm run start to start the server</code>
+To install <code>npm install && npm run start </code> to start the server
 
 ### Client start
-To install <code>npm install && npm run start to start the webpack dev server</code>
+To install <code>npm install && npm run start </code> to start the webpack dev server
