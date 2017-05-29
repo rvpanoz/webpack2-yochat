@@ -1,0 +1,20 @@
+{
+  "name": "yochat",
+  "version": "1.0.0",
+  "description": "a simple chat application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "chat",
+    "socket"
+  ],
+  "author": "rvpanoz@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.1"
+  }
+}

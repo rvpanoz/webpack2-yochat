@@ -1,0 +1,46 @@
+$font-stack: Helvetica, sans-serif;
+$font-size: 1.4em;
+$primary-color: #000;
+$bgcolor: #fff;
+$topMargin: 60px;
+
+body {
+  font-size: $font-size;
+  background-color: $bgcolor;
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+#app-content {
+  margin-top: $topMargin;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+form {
+  width: 85%;
+  position: fixed;
+  bottom: 0;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#messages li {
+  padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+
+#messages {
+  margin-bottom: 40px;
+}
