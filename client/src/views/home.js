@@ -5,7 +5,6 @@ import _ from 'lodash';
 import Backbone from 'backbone';
 import template from '../templates/home.html';
 
-
 //import socket.io
 import io from 'socket.io-client';
 

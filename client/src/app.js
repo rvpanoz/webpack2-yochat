@@ -8,7 +8,7 @@ import Router from './router';
 //header module
 import HeaderView from './views/common/header';
 
-var App = Backbone.View.extend({
+module.exports = Backbone.View.extend({
 
   start() {
 
@@ -20,20 +20,5 @@ var App = Backbone.View.extend({
 
     //start backbone history
     Backbone.history.start();
-  },
-
-  navigate(cls, params) {
-   var url = {};
-   _.extend(url, {
-     cls: cls,
-     params: params
-   });
-   this.router.navigate(JSON.stringify(url), {
-     trigger: true
-   });
-
-   return false;
- }
+  }
 });
-
-module.exports = App;

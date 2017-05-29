@@ -14,6 +14,8 @@ var HeaderView = Backbone.View.extend({
 
   _onAppSettings(e) {
     e.preventDefault();
+
+		app.navigate('app-settings');
     return false;
   },
 

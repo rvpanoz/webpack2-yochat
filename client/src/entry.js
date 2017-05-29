@@ -12,8 +12,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css/animate.min.css';
 import './assets/sass/app.scss';
 
+window.app = new App();
 
 $(document).ready(function() {
-  var app = new App();
   app.start();
 });
