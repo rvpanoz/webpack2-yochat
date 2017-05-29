@@ -1,2 +1,2 @@
-# webpack2-yochat
+# yochat
 simple chat application using socket.io, webpack2, backbone and express
