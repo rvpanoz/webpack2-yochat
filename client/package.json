@@ -9,7 +9,6 @@
     "build": "webpack -p --config webpack.config.js"
   },
   "author": "rvpanoz@gmail.com",
-  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
