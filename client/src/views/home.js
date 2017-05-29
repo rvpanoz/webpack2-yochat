@@ -84,7 +84,8 @@ var HomeView = Backbone.View.extend({
       msg: msg
     });
 
-    $.trim(this.$('input').val('')); //clear value
+		//clear value
+    $.trim(this.$('input').val(''));
     return false;
   }
 });

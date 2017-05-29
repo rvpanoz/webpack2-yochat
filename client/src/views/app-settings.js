@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import Backbone from 'backbone';
-import template from '../../templates/common/app-settings.html';
+import template from '../templates/common/app-settings.html';
 
 var AppModal = Backbone.View.extend({
   template: template,

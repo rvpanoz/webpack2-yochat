@@ -3,7 +3,6 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Backbone from 'backbone';
 import template from '../../templates/common/header.html';
-import AppSettings from '../../views/common/app-settings';
 
 var HeaderView = Backbone.View.extend({
 	template: template,
@@ -15,7 +14,10 @@ var HeaderView = Backbone.View.extend({
   _onAppSettings(e) {
     e.preventDefault();
 
-		app.navigate('app-settings');
+		app.AppRouter.navigate('app-settings', {
+			trigger: true
+		});
+
     return false;
   },
 

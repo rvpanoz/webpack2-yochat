@@ -12,7 +12,10 @@ module.exports = Backbone.View.extend({
 
   start() {
 
+    //application's router
     this.AppRouter = new Router();
+
+    //header view
     var headerView = new HeaderView();
 
     //attach header view
