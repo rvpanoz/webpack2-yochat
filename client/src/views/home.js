@@ -5,11 +5,6 @@ import _ from 'lodash';
 import Backbone from 'backbone';
 import template from '../templates/home.html';
 
-//import socket.io
-import io from 'socket.io-client';
-
-var socket = io('http://localhost:3033');
-
 var HomeView = Backbone.View.extend({
 	template: template,
 
@@ -17,6 +12,11 @@ var HomeView = Backbone.View.extend({
     'click button.btn-send': '_onSend'
   },
 
+	/**
+	 * event handler to send messages
+	 * @param  {[type]} e [description]
+	 * @return
+	 */
   _onSend(e) {
     e.preventDefault();
     var msg = $.trim(this.$('input').val());
@@ -26,12 +26,15 @@ var HomeView = Backbone.View.extend({
       return false;
     }
 
-    //send the message to all clients
     this.sendMessage(msg);
-
     return false;
   },
 
+	/**
+	 * View initialization
+	 * @param  {[type]} params [description]
+	 * @return
+	 */
 	initialize(params) {
 
     //register socket.io events
@@ -47,26 +50,35 @@ var HomeView = Backbone.View.extend({
 		this.render();
 	},
 
+	/**
+	 * render the template
+	 * @return [type] [description]
+	 */
 	render() {
-    //render the template
 		this.$el.html(this.template);
 	},
 
+	/**
+	 * Show message to the users
+	 * @param {[type]} msg [description]
+	 * @return
+	 */
   showMessage(msg) {
-
-    //show the message
     this.$('ul.messages').append('<li>' + msg + '</li>');
   },
 
+	/**
+	 * Send a message to the server for broadcasting to all users
+	 * @param {[type]} msg [description]
+	 * @return
+	 */
   sendMessage(msg) {
-
-    //send the message to all clients using socket.io
-    socket.emit('send', {
+		//emit send event
+		socket.emit('send', {
       msg: msg
     });
 
-    //clear value
-    $.trim(this.$('input').val(''));
+    $.trim(this.$('input').val('')); //clear value
     return false;
   }
 });
