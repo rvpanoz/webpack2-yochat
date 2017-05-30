@@ -16,17 +16,6 @@ io.on('connection', function (client) {
     msg: 'A new user joined.'
   });
 
-	client.on('joinserver', function (user, device) {
-		var exists = false;
-
-		_.find(people, function (key, value) {
-			if (key.name.toLowerCase() === name.toLowerCase())
-				return exists = true;
-		});
-
-    console.log(exists);
-	});
-
 	client.on('send:all', function (data) {
 		io.emit('show:message', {
 			msg: data.msg,
